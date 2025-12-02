@@ -28,11 +28,14 @@ export function PsychologistForm() {
       const application = { ...(formData as any), user_id: undefined };
 
       // Notify Telegram (best-effort). No DB persistence per request.
-      const notifyUrl = (
-        import.meta.env.VITE_NOTIFY_URL || 'http://localhost:4000'
+      const rawNotify = import.meta.env.VITE_NOTIFY_URL || 'http://localhost:4000';
+      const notifyUrl = (rawNotify.startsWith('http://localhost')
+        ? rawNotify
+        : rawNotify.replace(/^http:/, 'https:')
       ).replace(/\/+$/, '');
       const endpoint = new URL('/notify', notifyUrl).toString();
       try {
+        console.debug('Notify endpoint (psychologist):', endpoint);
         await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
