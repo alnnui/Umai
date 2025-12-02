@@ -29,8 +29,9 @@ export function PartnerForm() {
       const notifyUrl = (
         import.meta.env.VITE_NOTIFY_URL || 'http://localhost:4000'
       ).replace(/\/+$/, '');
+      const endpoint = new URL('/notify', notifyUrl).toString();
       try {
-        await fetch(`${notifyUrl}/notify`, {
+        await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ type: 'partner', data: inquiry }),
