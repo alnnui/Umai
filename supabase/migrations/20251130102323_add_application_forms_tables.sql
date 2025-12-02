@@ -1,0 +1,2 @@
+-- Migration removed: project no longer includes database migrations in this branch.
+-- If you need the migration later, restore from repository history or contact the maintainers.

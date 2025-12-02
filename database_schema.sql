@@ -1,0 +1,4 @@
+-- Database schema removed from repository.
+-- This branch does not include DB schema or migrations. If you need the
+-- schema, restore from version control history or contact the maintainers.
+-- from git history or contact the maintainers.
