@@ -24,26 +24,42 @@ exports.handler = async function (event, context) {
   }
 
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Method not allowed' }) };
+    return {
+      statusCode: 405,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ error: 'Method not allowed' }),
+    };
   }
 
   let body;
   try {
     body = JSON.parse(event.body);
   } catch (err) {
-    return { statusCode: 400, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Invalid JSON' }) };
+    return {
+      statusCode: 400,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ error: 'Invalid JSON' }),
+    };
   }
 
   const { type, data } = body || {};
   if (!type || !data) {
-    return { statusCode: 400, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Missing type or data' }) };
+    return {
+      statusCode: 400,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ error: 'Missing type or data' }),
+    };
   }
 
   const BOT = process.env.TELEGRAM_BOT_TOKEN;
   const CHAT = process.env.TELEGRAM_CHAT_ID;
 
   if (!BOT || !CHAT) {
-    return { statusCode: 500, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Missing credentials' }) };
+    return {
+      statusCode: 500,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ error: 'Missing credentials' }),
+    };
   }
 
   let text = '';
@@ -94,28 +110,52 @@ exports.handler = async function (event, context) {
           `Proposal: ${escapeHtml(data.proposal)}`;
         break;
       default:
-        text = `New submission (${escapeHtml(type)}): \n` + JSON.stringify(data);
+        text =
+          `New submission (${escapeHtml(type)}): \n` + JSON.stringify(data);
     }
   } catch (err) {
     text = `New submission (${escapeHtml(type)}): \n` + JSON.stringify(data);
   }
 
   try {
-    const response = await fetch(`https://api.telegram.org/bot${BOT}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: CHAT, text, disable_notification: false }),
-    });
+    const response = await fetch(
+      `https://api.telegram.org/bot${BOT}/sendMessage`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: CHAT,
+          text,
+          disable_notification: false,
+        }),
+      }
+    );
 
     const tgJson = await response.json();
     const tgOk = response.ok && tgJson && tgJson.ok;
 
     if (!tgOk) {
-      return { statusCode: 200, headers: CORS_HEADERS, body: JSON.stringify({ ok: false, telegram: false, telegramError: tgJson }) };
+      return {
+        statusCode: 200,
+        headers: CORS_HEADERS,
+        body: JSON.stringify({
+          ok: false,
+          telegram: false,
+          telegramError: tgJson,
+        }),
+      };
     }
 
-    return { statusCode: 200, headers: CORS_HEADERS, body: JSON.stringify({ ok: true, telegram: true, result: tgJson }) };
+    return {
+      statusCode: 200,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ ok: true, telegram: true, result: tgJson }),
+    };
   } catch (err) {
-    return { statusCode: 500, headers: CORS_HEADERS, body: JSON.stringify({ ok: false, telegram: false, error: String(err) }) };
+    return {
+      statusCode: 500,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ ok: false, telegram: false, error: String(err) }),
+    };
   }
 };

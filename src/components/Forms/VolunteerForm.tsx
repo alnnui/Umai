@@ -27,20 +27,7 @@ export function VolunteerForm() {
       const application = { ...(formData as any), user_id: undefined };
 
       // Notify Telegram (best-effort). No DB persistence per request.
-      const envNotify = import.meta.env.VITE_NOTIFY_URL;
-      let endpoint: string;
-      if (envNotify) {
-        const base = (envNotify.startsWith('http://localhost') ? envNotify : envNotify.replace(/^http:/, 'https:')).replace(/\/+$/, '');
-        endpoint = base.includes('vercel.app') ? new URL('/api/notify', base).toString() : new URL('/notify', base).toString();
-      } else if (typeof window !== 'undefined') {
-        if (window.location.hostname === 'localhost') {
-          endpoint = 'http://localhost:4000/notify';
-        } else {
-          endpoint = '/.netlify/functions/notify';
-        }
-      } else {
-        endpoint = 'http://localhost:4000/notify';
-      }
+      const endpoint = '/.netlify/functions/notify';
       try {
         console.debug('Notify endpoint (volunteer):', endpoint);
         await fetch(endpoint, {
