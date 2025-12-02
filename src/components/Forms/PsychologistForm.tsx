@@ -28,8 +28,10 @@ export function PsychologistForm() {
       const application = { ...(formData as any), user_id: undefined };
 
       // Notify Telegram (best-effort). No DB persistence per request.
+      const notifyUrl =
+        import.meta.env.VITE_NOTIFY_URL || 'http://localhost:4000';
       try {
-        await fetch('http://localhost:4000/notify', {
+        await fetch(`${notifyUrl}/notify`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ type: 'psychologist', data: application }),
