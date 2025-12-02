@@ -27,7 +27,9 @@ export function ChapterForm() {
       const application = { ...(formData as any), user_id: undefined };
 
       // Notify Telegram (best-effort). No DB persistence per request.
-      const notifyUrl = (import.meta.env.VITE_NOTIFY_URL || 'http://localhost:4000').replace(/\/+$/, '');
+      const notifyUrl = (
+        import.meta.env.VITE_NOTIFY_URL || 'http://localhost:4000'
+      ).replace(/\/+$/, '');
       try {
         await fetch(`${notifyUrl}/notify`, {
           method: 'POST',
