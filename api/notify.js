@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 const escapeHtml = (str) => {
   if (str === undefined || str === null) return '';
   return String(str)
