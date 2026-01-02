@@ -39,7 +39,7 @@ export const translations = {
         title: 'Our Founding Partner',
         name: 'Saby Charitable Foundation',
         description:
-          'Since 2002, Saby Foundation has been supporting social initiatives across Kazakhstan. As our founding partner, they help us provide essential menstrual hygiene products and psychological support to women in need.',
+          'Since 2002, Saby Foundation has been supporting social initiatives across Kazakhstan. As our founding partner, they were the first to respond and support us at the beginning of our journey to address socially undervalued issues.',
       },
       howItWorks: {
         title: 'How We Help',
@@ -452,7 +452,7 @@ export const translations = {
         title: 'Наш основной партнёр',
         name: 'Благотворительный фонд Saby',
         description:
-          'С 2002 года фонд Saby поддерживает социальные инициативы по всему Казахстану. Как наш основной партнёр, они помогают нам предоставлять необходимые средства менструальной гигиены и психологическую поддержку женщинам, нуждающимся в помощи.',
+          'С 2002 года фонд Saby поддерживает социальные инициативы по всему Казахстану. Как наш основной партнер, они первыми откликнулись и поддержали нас в начале нашего пути по решению социально недооцененных проблем.',
       },
       howItWorks: {
         title: 'Как мы помогаем',
@@ -867,7 +867,7 @@ export const translations = {
         title: 'Біздің негізгі серіктесіміз',
         name: 'Saby Қайырымдылық қоры',
         description:
-          '2002 жылдан бастап Saby қоры Қазақстан бойынша әлеуметтік бастамаларды қолдап келеді. Біздің негізгі серіктесіміз ретінде олар көмекке мұқтаж әйелдерге қажетті менструалдық гигиена құралдары мен психологиялық қолдау көрсетуге көмектеседі.',
+          '2002 жылдан бастап Saby қоры Қазақстан бойынша әлеуметтік бастамаларды қолдап келеді. Біздің негізгі серіктесіміз ретінде олар әлеуметтік мәні бағаланбаған мәселелерді шешу жолында бірінші болып қолдау көрсетіп, бізбен бірге болды.',
       },
       howItWorks: {
         title: 'Біз қалай көмектесеміз',
