@@ -1,4 +1,4 @@
-import { Users, Target, Smartphone, MessageCircle, MapPin } from 'lucide-react';
+import { Users, Target, Smartphone, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export function AboutPage() {
@@ -63,14 +63,6 @@ export function AboutPage() {
               <h3 className="text-2xl font-bold text-gray-900">{t.about.work.talks.title}</h3>
             </div>
             <p className="text-gray-700 leading-relaxed">{t.about.work.talks.description}</p>
-          </div>
-
-          <div className="border-l-4 border-green-600 pl-6">
-            <div className="flex items-center mb-3">
-              <MapPin className="w-6 h-6 text-green-600 mr-3" />
-              <h3 className="text-2xl font-bold text-gray-900">{t.about.work.outreach.title}</h3>
-            </div>
-            <p className="text-gray-700 leading-relaxed">{t.about.work.outreach.description}</p>
           </div>
         </div>
       </section>
