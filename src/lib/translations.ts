@@ -102,11 +102,6 @@ export const translations = {
           description:
             "Monthly educational sessions and open discussions with psychologists, doctors, and activists aimed at raising awareness of menstrual health, postpartum depression, and women's rights.",
         },
-        outreach: {
-          title: 'Community Outreach',
-          description:
-            'We organise donation drives, awareness campaigns, and partnerships with schools to reach girls in underdeveloped areas and ensure that no one is left behind.',
-        },
       },
     },
     support: {
@@ -519,11 +514,6 @@ export const translations = {
           title: 'Umai Talks',
           description:
             'Ежемесячные образовательные сессии и дискуссии с психологами, врачами и активистами, направленные на повышение осведомленности о менструальном здоровье, послеродовой депрессии и правах женщин.',
-        },
-        outreach: {
-          title: 'Работа с сообществами',
-          description:
-            'Мы проводим благотворительные сборы, информационные кампании и партнёрства со школами, чтобы помогать девушкам из малообеспеченных районов.',
         },
       },
     },
@@ -938,11 +928,6 @@ export const translations = {
           title: 'Umai Talks',
           description:
             'Менструалдық денсаулық, жалпы әйел денсаулығы мен құқықтары жайлы, әр түрлі өз салаларының мықтыларымен өтетін кездесулер.',
-        },
-        outreach: {
-          title: 'Қауымдастықпен жұмыс',
-          description:
-            'Біз ауылды-мекендерге барып, қайырымдылық акцияларын ұйымдастырып, ақпараттандыру науқандарын өткізіп, мектептермен серіктестік орнатамыз. Мақсатымыз ешкімді назардан тыс қалдырмау.',
         },
       },
     },
